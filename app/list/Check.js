@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 
 export default function Check() {
-  const 상품들 = ['#감성', '#라떼맛집', 'Coconut'];
+  const tags = ['#커피 맛집', '#디저트', '#스터디카페','#라떼 아트','#마카롱', '#테이크 아웃', '#차','#카페모카','#아메리카노','#카푸치노','#애견 카페','#에스프레소','#티라미수','#이쁜 카페','#아인슈패너','#감성 카페','#인스타 카페'];
   const [isChecked, setIsChecked] = useState({});
 
   const handleCheckboxChange = (productName) => {
@@ -18,7 +18,7 @@ export default function Check() {
 
     // 선택된 항목을 처리하고 상태를 업데이트합니다.
     const 선택된상품들 = Object.keys(isChecked).filter((product) => isChecked[product]);
-    console.log("선택된 상품들:", 선택된상품들);
+    console.log("선택된 tags:", 선택된상품들);
 
     // 여기에서 선택된 항목을 처리하는 로직을 추가하세요.
     // 예를 들어, 서버로 선택된 항목을 보내고 처리할 수 있습니다.
@@ -61,9 +61,10 @@ export default function Check() {
 
   return (
     <div>
-      <form method="POST" action="/api/data">
+    <div className="tag-container">
+      <form method="POST" action="/api/data" className="tag-box">
         <input type="hidden" />
-        {상품들.map((productName) => (
+        {tags.map((productName) => (
           <div
             key={productName}
             className={`inner-container ${isChecked[productName] ? 'checked' : ''}`}
@@ -86,6 +87,7 @@ export default function Check() {
       <form onSubmit={handleSubmit} method="POST">
         <input type="submit" value="제출" className="signup-btn" style={{ display: 'block' }} />
       </form>
+    </div>
     </div>
   );
 }

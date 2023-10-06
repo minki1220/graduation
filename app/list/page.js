@@ -7,7 +7,7 @@ export default async function List(){
     const db = (await connectDB).db('forum');
     let result = await db.collection('post').find().toArray();
     return(
-        <div className="tag-container">
+        <div>
             <Check/>
         </div>
     )
