@@ -5,6 +5,8 @@ import { getServerSession } from 'next-auth'
 import { authOptions } from '@/pages/api/auth/[...nextauth]'
 import { LogOutBtn } from './LogOutBtn'
 import  LoginBtn  from './LoginBtn'
+import  SignupBtn  from './SignupBtn'
+import './css/navbar.css';
 
 
 
@@ -25,11 +27,21 @@ export default async function RootLayout({ children }) {
       <Link href="/" className="logo">#Cafe</Link> 
       <Link href="/list">List</Link>
       { 
-      session 
-      ? <span>{session.user.name} <LogOutBtn/> </span> 
-       : <LoginBtn></LoginBtn>
+      // session 
+      // ? <span>{session.user.name} <LogOutBtn/> </span> 
+      //  : <LoginBtn></LoginBtn>
+      session ? (
+        <span>
+          {session.user.name} <LogOutBtn />
+        </span>
+      ) : (
+        <span>
+          <LoginBtn />
+          <SignupBtn />
+        </span>
+      )
       }
-      <button><Link href="/register">회원가입</Link></button>
+
       </div>
       {children}</body>
     </html>
