@@ -23,13 +23,17 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-      <div className="navbar"> 
-      <Link href="/" className="logo">#Cafe</Link> 
-      <Link href="/list">List</Link>
+      <div className="navbar">
+      <div className='logo'>
+        <span>#cafe</span>
+      </div>
+      <div className='menu'>
+      <Link href="/">Home</Link> 
+      <Link href="/mapAPI">Cafe Map</Link>
+      <Link href="/cafeNews">Cafe News</Link>
+      </div>
+      <div className='loginSignup-Btn'>
       { 
-      // session 
-      // ? <span>{session.user.name} <LogOutBtn/> </span> 
-      //  : <LoginBtn></LoginBtn>
       session ? (
         <span>
           {session.user.name} <LogOutBtn />
@@ -41,7 +45,7 @@ export default async function RootLayout({ children }) {
         </span>
       )
       }
-
+      </div>
       </div>
       {children}</body>
     </html>

@@ -1,13 +1,25 @@
 .navbar {
-    background: white;
-    padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  padding: 30px;
   }
   .navbar a {
+    font-weight: 600;
+    font-size: 20px;
     margin-right: 10px;
     text-decoration: none;
     color: black;
   }
   .logo {
     font-weight: bold;
+    font-size: 30px;
+    margin-left: 3%;
   } 
-  
+.menu{
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-right: 25%;
+}
