@@ -23,7 +23,7 @@ export default function Check() {
     // 여기에서 선택된 항목을 처리하는 로직을 추가하세요.
     // 예를 들어, 서버로 선택된 항목을 보내고 처리할 수 있습니다.
     try {
-        const response = await fetch('/api/data', {
+        const response = await fetch('/api/auth/signupTags', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

@@ -38,9 +38,9 @@ export const authOptions = {
         return user
       }
     })
-
   ],
 
+  //3. jwt 써놔야 잘됩니다 + jwt 만료일설정
   session: {
     strategy: 'jwt',
     maxAge: 30 * 24 * 60 * 60 //30일
@@ -65,6 +65,6 @@ export const authOptions = {
     },
   },
 
-  secret : 'qwer1234'
+  secret: 'qwer1234'  
 };
-export default NextAuth(authOptions);
+export default NextAuth(authOptions); 

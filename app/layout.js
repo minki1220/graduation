@@ -1,17 +1,14 @@
+
+
 import Link from 'next/link'
 import './globals.css'
-import { Inter } from 'next/font/google'
-import { getServerSession } from 'next-auth'
-import { authOptions } from '@/pages/api/auth/[...nextauth]'
 import { LogOutBtn } from './LogOutBtn'
 import  LoginBtn  from './LoginBtn'
 import  SignupBtn  from './SignupBtn'
 import './css/navbar.css';
+import { getServerSession } from 'next-auth'
+import { authOptions } from '@/pages/api/auth/[...nextauth]'
 
-
-
-
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: 'Create Next App',
@@ -21,8 +18,6 @@ export const metadata = {
 export default async function RootLayout({ children }) {
   let session = await getServerSession(authOptions)
   return (
-    <html lang="en">
-      <body className={inter.className}>
       <div className="navbar">
       <div className='logo'>
         <span>#cafe</span>
@@ -46,8 +41,7 @@ export default async function RootLayout({ children }) {
       )
       }
       </div>
+      {children}
       </div>
-      {children}</body>
-    </html>
   )
 }

@@ -1,5 +1,9 @@
-export default function MapApi(){
-    return(
-        <div>카페 지도</div>
-    )
+
+import KakaoMap from "./kakaoMaps"
+
+export default function Home() {
+  return (
+   <div><KakaoMap></KakaoMap></div>
+  )
 }
+
