@@ -26,7 +26,6 @@
 .sign_in_container button:focus {
     outline: none;
   }
-
 .sign_in_container form{
     background-color: #FFFFFF;
     display: flex;
@@ -34,7 +33,6 @@
     flex-direction: column;
     margin-top: 100px;
 }
-
 .sign_in_container form input {
     background-color: #eee;
     border: none;
@@ -43,7 +41,6 @@
     margin: 8px 0;
     width: 100%;
 }
-
 .signup_container{
     background-color: #fff;
     border-radius: 2em;

@@ -18,6 +18,8 @@ export const metadata = {
 export default async function RootLayout({ children }) {
   let session = await getServerSession(authOptions)
   return (
+    <html lang="en">
+      <body>
       <div className="navbar">
       <div className='logo'>
         <span>#cafe</span>
@@ -41,7 +43,8 @@ export default async function RootLayout({ children }) {
       )
       }
       </div>
-      {children}
       </div>
+      {children}</body>
+    </html>
   )
 }

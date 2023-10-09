@@ -64,7 +64,6 @@ export const authOptions = {
       return session;
     },
   },
-
   secret: 'qwer1234'  
 };
 export default NextAuth(authOptions); 
