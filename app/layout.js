@@ -28,6 +28,7 @@ export default async function RootLayout({ children }) {
       <Link href="/">Home</Link> 
       <Link href="/mapAPI">Cafe Map</Link>
       <Link href="/cafeNews">Cafe News</Link>
+      <Link href="/editTags"># Edit Page</Link>
       </div>
       <div className='loginSignup-Btn'>
       { 

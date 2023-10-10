@@ -1,5 +1,6 @@
 import NextAuth from "next-auth";
 import KakaoProvider from "next-auth/providers/kakao";
+import GithubProvider from "next-auth/providers/github";
 import { connectDB } from "@/util/database";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from 'bcrypt';
@@ -10,6 +11,11 @@ export const authOptions = {
     KakaoProvider({
       clientId: '3b55b61c92dbe4ac81432183ebd7824f',
       clientSecret: 'WAWP09eIrul7JuI47wBqiOtL43ElfmTQ',
+    }),
+
+    GithubProvider({
+      clientId: 'a0d32f58eda459b4873c',
+      clientSecret: 'add1badd77ad0b6bdbf4b16d7367216705459b7a',
     }),
 
     CredentialsProvider({
