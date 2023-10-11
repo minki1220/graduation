@@ -1,5 +1,5 @@
 
-import KakaoMap from "./kakaoMaps"
+import KakaoMap from "../../components/kakaomap/kakaoMaps"
 
 export default function Home() {
   return (

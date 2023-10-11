@@ -1,6 +1,5 @@
 
-
-import './css/subBackground.css';
+import  '@/css/subBackground.css';
 
 export default async function Home() {
 

@@ -1,6 +1,6 @@
 
 import Link from 'next/link';
-import styles from '../css/signup.module.css';
+import styles from '@/css/signup.module.css';
 
 export default function SignUpPage() {
   return (

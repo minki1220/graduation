@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react';
-import '../css/KakaoMaps.css';
+import  '@/css/KakaoMaps.css';
 
 export default function KakaoMap() {
   useEffect(() => {

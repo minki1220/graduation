@@ -1,11 +1,10 @@
 
-
 import Link from 'next/link'
 import './globals.css'
-import { LogOutBtn } from './LogOutBtn'
-import  LoginBtn  from './LoginBtn'
-import  SignupBtn  from './SignupBtn'
-import './css/navbar.css';
+import { LogOutBtn } from '../LoginBtn/LogOutBtn'
+import  LoginBtn  from '../LoginBtn/LoginBtn'
+import  SignupBtn  from '../LoginBtn/SignupBtn'
+import '@/css/navbar.css';
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/pages/api/auth/[...nextauth]'
 
