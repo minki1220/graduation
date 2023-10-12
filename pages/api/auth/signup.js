@@ -33,14 +33,14 @@ export default async function handler(req, res) {
     //____________________________________________
 
     // 새로운 필드 추가
-    const newData = {
-      ...req.body,
-      tags: [],
-    };
+    // const newData = {
+    //   ...req.body,
+    //   tags: [],
+    // };
 
     // db업로드
     db = (await connectDB).db("forum");
-    await db.collection("user_cred").insertOne(newData);
-    res.redirect(302, "/tags");
+    await db.collection("user_cred").insertOne(req.body);
+    res.redirect(302, "/");
   }
 }

@@ -1,19 +1,20 @@
 import { connectDB } from "@/util/database";
-import { ObjectId } from "mongodb";
 import { getServerSession } from "next-auth";
 import { authOptions } from "./[...nextauth]";
 
 export default async function handler(req, res) {
-  let session = await getServerSession(req,res,authOptions)
-  if(session){
-    req.body.email = session.user.email
-    req.body.name = session.user.name
-  }
+  let session = await getServerSession(req, res, authOptions)
   console.log(session)
-
   if (req.method == 'POST'){
+    console.log(req.body._id)
+    let insertTags = {
+      tags : req.body.tags
+    }
     const db = (await connectDB).db('forum')
-    let result = await db.collection('tags').insertOne(req.body)
-    res.status(200).json('응답완료')
+    let result = await db.collection('user_cred').updateOne(
+      {email : session.user.email},
+      {$set : {insertTags}}
+    )
+    res.redirect(302, "/");
   }
 }
