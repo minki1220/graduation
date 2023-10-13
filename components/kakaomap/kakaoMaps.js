@@ -25,6 +25,10 @@ export default function KakaoMap() {
     };
     mapScript.addEventListener('load', onLoadKakaoMap);
   }, []);
+  
+
+  
+  
 
   return (
     <div className='bg'>

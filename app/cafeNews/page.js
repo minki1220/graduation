@@ -1,5 +1,11 @@
-export default function cafeNEws(){
-    return(
-        <div>카페 소식</div>
-    )
+import { connectDB } from "@/util/database.js"
+import MenuSelector from "./userpage";
+
+export default async function List() {
+   
+  return (
+    <div >
+      <MenuSelector/>
+    </div>
+  )
 }
