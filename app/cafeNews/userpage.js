@@ -7,8 +7,35 @@ export default function MenuSelector() {
   const [cuisine, setCuisine] = useState('');
   const [occasion, setOccasion] = useState('');
   const [menu, setMenu] = useState(''); // 추가: menu 상태
-
-
+  
+  async function fetchData() {
+    
+    try {
+      const data = {
+        category : category,
+        cuisine : cuisine,
+        occasion : occasion,
+      }
+      const response = await fetch('/api/post/recommend', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+      });
+  
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+  
+      const data1 = await response.json();
+  
+      setMenu(data1.menu);
+      console.log(data1.menu);
+    } catch (error) {
+      console.error('Fetch error:', error);
+    }
+  }
 
   const handleCategoryChange = (event) => {
     setCategory(event.target.value);
@@ -22,35 +49,9 @@ export default function MenuSelector() {
     setOccasion(event.target.value);
   };
 
-  
-
   const handleRecommendation = () => {
-    // Create a data object to send to the server
-    const data = {
-      category,
-      cuisine,
-      occasion,
-    };
-   
-    fetch('/api/post/recommend', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    })
-    .then((response) => response.json())
-    .then((data) => {
-      if (data.menu) {
-        setMenu(data.menu); // 결과로 받은 menu 값을 상태로 설정
-      } else {
-        console.error('No menu found in the response');
-      }
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-    });
-};
+    fetchData()
+  }
 
   return (
     <div>
@@ -181,11 +182,9 @@ export default function MenuSelector() {
         </label>
       </div>
       <div>
-        <form action='/api/post/recommend' method='POST'>
             <button onClick={handleRecommendation}>메뉴 추천</button>
             <h3>추천 메뉴:</h3>
             <p>{menu}</p>
-        </form>
       </div>
     </div>
   );
